@@ -15,6 +15,10 @@ app.listen(PORT, function() {
     console.log(`O Express está rodando na porta ${PORT}`);
 });
 
+// body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
 // db connections (Conexao com banco de dados)
 db
     .authenticate()
@@ -27,4 +31,7 @@ db
 // routes (Rotas)
 app.get('/', (req, res) => {
     res.send("Esta funcionando na Porta: " + PORT)
-})
+});
+
+// jobs routes
+app.use('/jobs', require('./routes/jobs'));

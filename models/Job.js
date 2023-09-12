@@ -1,14 +1,12 @@
-//Chamando o sequilize
-const Sequilize = require('sequielize');
-// indicando o arquivo de conexao com o banco
+// Chamando o Sequelize
+const Sequelize = require('sequelize');
+// Indicando o arquivo de conexão com o banco
 const db = require('../db/connection');
-const sequelize = require('../db/connection');
 
-
-//  Criando o model com metodo define do sequilize
-const job = db.define('job', {
+// Criando o modelo com o método define do Sequelize
+const Job = db.define('job', {
     title: {
-        type: Sequilize.STRING,
+        type: Sequelize.STRING,
     },
     salary: {
         type: Sequelize.STRING,
@@ -20,9 +18,11 @@ const job = db.define('job', {
         type: Sequelize.STRING,
     },
     new_job: {
-        type: Sequelize.INTERGER,
+        type: Sequelize.INTEGER, // Correção: INTEGER deve ser escrito com "I" maiúsculo
     },
-
+    description: {
+        type: Sequelize.STRING,
+    }
 });
 
-module.exports = Job
+module.exports = Job;
